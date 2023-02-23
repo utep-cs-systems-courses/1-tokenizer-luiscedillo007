@@ -1,4 +1,5 @@
-#include "malloc.h"
+//#include "malloc.h"
+#include <stdlib.h>
 #include "bst.h"
 
 BstNode *root = 0;
