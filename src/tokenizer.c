@@ -83,13 +83,12 @@ char **tokenize(char* str){
     // This line of code dynamically allocates memory for an array of character pointers using the malloc() function. 
     // The size of the allocated memory is calculated as (num_words + 1) * sizeof(char *) 
     char **tokens = malloc((num_words + 1) * sizeof(char *));
-    char *start = word_start(str);
-    char *end = word_terminator(start);
+ 
     int i;
     for(i = 0; i < num_words; i++){
-        tokens[i] = copy_str(start, end-start);
-        start = word_start(end);
-        end = word_terminator(start);
+        char *start = word_start(str);
+        str = word_terminator(start);
+        tokens[i] = copy_str(start, str-start);
     }
     tokens[num_words] = 0;
     return tokens;
